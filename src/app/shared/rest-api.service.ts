@@ -33,6 +33,10 @@ export class RestApiService {
     return this.http.get<Chickens>(this.apiUrl + '/chickens');
   }
 
+  getChickenById(farmId, chickenId): Observable<Chickens> {
+    return this.http.get<Chickens>(this.apiUrl + '/' + farmId + '/edit_chicken/' + chickenId);
+  }
+
   getEggs(): Observable<Eggs> {
     return this.http.get<Eggs>(this.apiUrl + '/eggs');
   }

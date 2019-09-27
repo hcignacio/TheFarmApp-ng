@@ -16,6 +16,7 @@ import { ChickenEditComponent } from './chicken-edit/chicken-edit.component';
 import { FarmsListComponent } from './farms-list/farms-list.component';
 import { FarmCreateComponent } from './farm-create/farm-create.component';
 import { FarmEditComponent } from './farm-edit/farm-edit.component';
+import { ChickenDetailComponent } from './chicken-detail/chicken-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FarmEditComponent } from './farm-edit/farm-edit.component';
     ChickenEditComponent,
     FarmsListComponent,
     FarmCreateComponent,
-    FarmEditComponent
+    FarmEditComponent,
+    ChickenDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -26,13 +26,15 @@
             <tr *ngFor="let chicken of Chicken">
               <td style="text-align: center">{{chicken.farmId}}</td>
               <td style="text-align: center">{{chicken.id}}</td>
-              <td style="text-align: center">{{chicken.name}}</td>
+              <td style="text-align: center"><span class="edit"
+                                                    (click)="getChickenById(chicken.farmId, chicken.id)"
+                                                    routerLink="{{chicken.farmId}}/chicken-detail/{{chicken.id}}">{{chicken.name}}</span></td>
               <td style="text-align: center">{{chicken.eggsAmount}}</td>
               <td style="text-align: center">{{chicken.joinDate | date}}</td>
               <td>
                 <span class="edit" (click)="editChicken(chicken.farmId, chicken.id)" routerLink="{{chicken.farmId}}/chicken-edit/{{chicken.id}}">Edit</span>
                 <span class="delete" (click)="deleteChicken(chicken)">Delete</span>
-                <button class="btn btn-outline-primary ml-3" 
+                <button class="btn btn-outline-secondary ml-3" 
                         (click)="addEggById(chicken.id)">Add Egg</button>
                       
               </td>
