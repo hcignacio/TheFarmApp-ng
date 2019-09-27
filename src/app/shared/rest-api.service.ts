@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 //import { catchError } from 'rxjs/operators';
 import { Employees } from './employees.model';
+import { Farms } from './farms.model';
 import { Chickens } from './chickens.model';
 import { Eggs } from './eggs.model';
 
@@ -24,6 +25,10 @@ export class RestApiService {
     return this.http.get<Employees>(this.apiUrl + '/employees');
   }
 
+  getFarms(): Observable<Farms> {
+    return this.http.get<Farms>(this.apiUrl + '/farms');
+  }
+
   getChickens(): Observable<Chickens> {
     return this.http.get<Chickens>(this.apiUrl + '/chickens');
   }
@@ -36,6 +41,13 @@ export class RestApiService {
     return this.http.post<Employees>(this.apiUrl + '/employees',
                                       JSON.stringify(employee),
                                       this.httpOptions);
+  }
+
+  createFarm(farm): Observable<Farms> {
+    return this.http.post<Farms>(this.apiUrl + '/add_farm',
+                                    JSON.stringify(farm),
+                                    this.httpOptions);
+                                    //.pipe(catchError(this.handleError<Chickens>('createChicken')));
   }
 
   createChicken(chicken): Observable<Chickens> {
@@ -52,7 +64,12 @@ export class RestApiService {
                                 //.pipe(catchError(this.handleError<Eggs>('createEgg')));
   }
 
-  
+  createChickenById(id): Observable<Chickens> {
+    return this.http.post<Chickens>(this.apiUrl + '/add_chicken_by_id',
+                                JSON.stringify(id),
+                                this.httpOptions);
+  }
+
   createEggById(id): Observable<Eggs> {
     return this.http.post<Eggs>(this.apiUrl + '/add_egg_by_id',
                                 JSON.stringify(id),
@@ -65,6 +82,12 @@ export class RestApiService {
                                     this.httpOptions);
   }
   
+  editFarm(farmId, farm): Observable<Chickens> {
+    return this.http.post<Chickens>(this.apiUrl + '/edit_farm/' + farmId,
+                                    JSON.stringify(farm),
+                                    this.httpOptions);
+  }
+
   /*
   createEggById(egg): Observable<Eggs> {
     return this.http.post<Eggs>(this.apiUrl + '/add_egg_by_id',
@@ -91,6 +114,12 @@ export class RestApiService {
     return this.http.delete<Chickens>(this.apiUrl + '/chickens/' + id);
   }
   */
+
+  deleteFarm(farm): Observable<Farms> {
+  return this.http.post<Farms>(this.apiUrl + '/del_farm',
+                                  JSON.stringify(farm),
+                                  this.httpOptions);
+  }
 
   deleteChicken(chicken): Observable<Chickens> {
     return this.http.post<Chickens>(this.apiUrl + '/del_chicken',

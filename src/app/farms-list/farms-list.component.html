@@ -1,0 +1,46 @@
+<div class="container">
+
+    <!-- Show it when there is no farm -->
+    <div class="no-data text-center" *ngIf="Farm.length == 0">
+      <p>There is no farm added yet!</p>
+      <button class="btn btn-outline-primary" routerLink="/create-farm">Add Farm</button>
+    </div>
+  
+    <!-- farms list table, it hides when there is no farm -->
+    <div *ngIf="Farm.length !== 0">
+      <h3 class="mb-3 text-center">Farms List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center">Farm ID</th>
+              <th scope="col" style="text-align: center">Name</th>
+              <th scope="col" style="text-align: center">Chickens Amount</th>
+              <th scope="col" style="text-align: center">Eggs Amount</th>
+              <th scope="col" style="text-align: center">Creation Date</th>
+              <th scope="col" style="text-align: center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let farm of Farm">
+              <td style="text-align: center">{{farm.id}}</td>
+              <td style="text-align: center">{{farm.name}}</td>
+              <td style="text-align: center">{{farm.chickensAmount}}</td>
+              <td style="text-align: center">{{farm.eggsAmount}}</td>
+              <td style="text-align: center">{{farm.creationDate | date}}</td>
+              <td>
+                <span class="edit" (click)="editFarm(farm.id)" routerLink="farm-edit/{{farm.id}}">Edit</span>
+                <span class="delete" (click)="deleteFarm(farm)">Delete</span>
+                <button class="btn btn-outline-primary ml-3" 
+                        (click)="addChickenById(farm.id)">Add Chicken</button>
+                      
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>
