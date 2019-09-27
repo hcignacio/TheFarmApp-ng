@@ -1,0 +1,26 @@
+<div class="container custom-container">
+    <div class="col-md-12">
+      <h3 class="mb-3 text-center">Create Egg</h3>
+  
+      <div class="form-group">
+        <h6>Chicken ID</h6>
+        <input type="number" [(ngModel)]="eggDetails.chickenId" class="form-control" placeholder="Chicken ID" required>
+      </div>
+  
+      <div class="form-group">
+        <h6>Creation Date</h6>
+        <input type="date" [(ngModel)]="eggDetails.creationDate" class="form-control" placeholder="creation Date">
+      </div>
+  
+      <!--
+      <div class="form-group">
+        <input type="" [(ngModel)]="eggDetails.joinDate" class="form-control" placeholder="Join Date">
+      </div>
+      -->
+
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" (click)="addEgg()">Add Egg!</button>
+      </div>
+  
+    </div>
+  </div>

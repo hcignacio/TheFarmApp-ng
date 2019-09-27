@@ -1,0 +1,48 @@
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no chicken -->
+    <div class="no-data text-center" *ngIf="Chicken.length == 0">
+      <p>There is no chicken added yet!</p>
+      <button class="btn btn-outline-primary" routerLink="/create-chicken">Add Chicken</button>
+    </div>
+  
+    <!-- chickens list table, it hides when there is no chicken -->
+    <div *ngIf="Chicken.length !== 0">
+      <h3 class="mb-3 text-center">Chickens List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center">Farm ID</th>
+              <th scope="col" style="text-align: center">Chicken ID</th>
+              <th scope="col" style="text-align: center">Name</th>
+              <th scope="col" style="text-align: center">Eggs Amount</th>
+              <th scope="col" style="text-align: center">Join Date</th>
+              <th scope="col" style="text-align: center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let chicken of Chicken">
+              <td style="text-align: center">{{chicken.farmId}}</td>
+              <td style="text-align: center">{{chicken.id}}</td>
+              <td style="text-align: center">{{chicken.name}}</td>
+              <td style="text-align: center">{{chicken.eggsAmount}}</td>
+              <td style="text-align: center">{{chicken.joinDate | date}}</td>
+              <td>
+                <!--
+                <span class="edit" routerLink="/chicken-edit/{{chicken.id}}">Edit</span>
+                -->
+                <span class="delete" (click)="deleteChicken(chicken)">Delete</span>
+                <button class="btn btn-outline-primary ml-3" 
+                        (click)="addEggById(chicken.id)">Add Egg</button>
+                      
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>

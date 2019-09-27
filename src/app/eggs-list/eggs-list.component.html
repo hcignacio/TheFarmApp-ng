@@ -1,0 +1,40 @@
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no egg -->
+    <div class="no-data text-center" *ngIf="Egg.length == 0">
+      <p>There is no egg added yet!</p>
+      <button class="btn btn-outline-primary" routerLink="/create-egg">Add Egg</button>
+    </div>
+  
+    <!-- eggs list table, it hides when there is no egg -->
+    <div *ngIf="Egg.length !== 0">
+      <h3 class="mb-3 text-center">Eggs List</h3>
+  
+      <div class="col-md-12">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align: center">Chicken ID</th>
+              <th scope="col" style="text-align: center">Creation Date</th>
+              <!--
+              <th scope="col" style="text-align: center">Action</th>
+              -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let egg of Egg">
+              <td style="text-align: center">{{egg.chickenId}}</td>
+              <td style="text-align: center">{{egg.creationDate | date}}</td>
+              <!--
+              <td>
+                <span class="edit" routerLink="/egg-edit/{{egg.id}}">Edit</span>
+                <span class="delete" (click)="deleteEgg(egg)">Delete</span>
+              -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  
+  </div>
