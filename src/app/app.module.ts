@@ -12,6 +12,7 @@ import { ChickenCreateComponent } from './chicken-create/chicken-create.componen
 import { ChickensListComponent } from './chickens-list/chickens-list.component';
 import { EggCreateComponent } from './egg-create/egg-create.component';
 import { EggsListComponent } from './eggs-list/eggs-list.component';
+import { ChickenEditComponent } from './chicken-edit/chicken-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EggsListComponent } from './eggs-list/eggs-list.component';
     ChickenCreateComponent,
     ChickensListComponent,
     EggCreateComponent,
-    EggsListComponent
+    EggsListComponent,
+    ChickenEditComponent
   ],
   imports: [
     BrowserModule,

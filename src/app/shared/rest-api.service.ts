@@ -58,8 +58,13 @@ export class RestApiService {
                                 JSON.stringify(id),
                                 this.httpOptions);
   }
-  
 
+  editChicken(farmId, chickenId, chicken): Observable<Chickens> {
+    return this.http.post<Chickens>(this.apiUrl + '/' + farmId + '/edit_chicken/' + chickenId,
+                                    JSON.stringify(chicken),
+                                    this.httpOptions);
+  }
+  
   /*
   createEggById(egg): Observable<Eggs> {
     return this.http.post<Eggs>(this.apiUrl + '/add_egg_by_id',

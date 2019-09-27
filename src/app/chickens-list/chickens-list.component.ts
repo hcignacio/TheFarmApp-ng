@@ -29,6 +29,12 @@ export class ChickensListComponent implements OnInit {
   }
   */
 
+ editChicken(farmId, chickenId) {
+  if (window.confirm('Are you sure you want to edit?')) {
+    this.router.navigate([ farmId + '/chicken-edit/' + chickenId ])
+  }
+}
+
   deleteChicken(chicken) {
     if (window.confirm('Are you sure you want to delete?')) {
       this.restApi.deleteChicken(chicken)

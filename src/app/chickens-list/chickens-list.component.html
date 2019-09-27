@@ -30,9 +30,7 @@
               <td style="text-align: center">{{chicken.eggsAmount}}</td>
               <td style="text-align: center">{{chicken.joinDate | date}}</td>
               <td>
-                <!--
-                <span class="edit" routerLink="/chicken-edit/{{chicken.id}}">Edit</span>
-                -->
+                <span class="edit" (click)="editChicken(chicken.farmId, chicken.id)" routerLink="{{chicken.farmId}}/chicken-edit/{{chicken.id}}">Edit</span>
                 <span class="delete" (click)="deleteChicken(chicken)">Delete</span>
                 <button class="btn btn-outline-primary ml-3" 
                         (click)="addEggById(chicken.id)">Add Egg</button>
