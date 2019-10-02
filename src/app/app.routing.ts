@@ -13,13 +13,6 @@ import { EggsListComponent } from './eggs-list/eggs-list.component';
 
 
 const routes: Routes = [
-  /*
-  { path: '', pathMatch: 'full', redirectTo: 'employees-list' },
-  { path: 'create-employee', component: EmployeesCreateComponent },
-  { path: 'employees-list', component: EmployeesListComponent },
-  { path: 'employee-edit/:id', component: EmployeesEditComponent },
-  */
-  
   { path: 'farms-list', component: FarmsListComponent },
   { path: 'create-farm', component: FarmCreateComponent },
   { path: 'farm-edit/:id', component: FarmEditComponent },
