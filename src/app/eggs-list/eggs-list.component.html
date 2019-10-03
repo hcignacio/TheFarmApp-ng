@@ -16,20 +16,16 @@
             <tr>
               <th scope="col" style="text-align: center">Chicken ID</th>
               <th scope="col" style="text-align: center">Creation Date</th>
-              <!--
               <th scope="col" style="text-align: center">Action</th>
-              -->
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let egg of Egg">
               <td style="text-align: center">{{egg.chickenId}}</td>
               <td style="text-align: center">{{egg.creationDate | date}}</td>
-              <!--
               <td>
-                <span class="edit" routerLink="/egg-edit/{{egg.id}}">Edit</span>
-                <span class="delete" (click)="deleteEgg(egg)">Delete</span>
-              -->
+                <button class="btn btn-outline-secondary ml-3" 
+                (click)="born(egg)">Born</button>
             </tr>
           </tbody>
         </table>

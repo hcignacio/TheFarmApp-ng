@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RestApiService } from '../shared/rest-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eggs-list',
@@ -9,7 +10,12 @@ import { RestApiService } from '../shared/rest-api.service';
 export class EggsListComponent implements OnInit {
   Egg: any = [];
 
-  constructor(public restApi: RestApiService) { }
+  /*
+  chickenToBorn = { name: '',
+                    joinDate: Date.now }
+  */
+
+  constructor(public restApi: RestApiService, public router: Router) { }
 
   ngOnInit() {
     this.loadEggs();
@@ -24,5 +30,12 @@ export class EggsListComponent implements OnInit {
       this.restApi.deleteEgg(egg)
         .subscribe(data => this.loadEggs())
     }
+  }
+
+  born(egg) {
+    this.restApi.born(egg)
+      .subscribe((data: {}) => {
+        this.router.navigate(['/chickens-list'])
+      })
   }
 }

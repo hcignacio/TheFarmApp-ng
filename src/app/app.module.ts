@@ -14,6 +14,7 @@ import { FarmsListComponent } from './farms-list/farms-list.component';
 import { FarmCreateComponent } from './farm-create/farm-create.component';
 import { FarmEditComponent } from './farm-edit/farm-edit.component';
 import { ChickenDetailComponent } from './chicken-detail/chicken-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ChickenDetailComponent } from './chicken-detail/chicken-detail.componen
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

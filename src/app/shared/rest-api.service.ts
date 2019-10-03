@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-//import { catchError } from 'rxjs/operators';
-import { Employees } from './employees.model';
 import { Farms } from './farms.model';
 import { Chickens } from './chickens.model';
 import { Eggs } from './eggs.model';
@@ -21,10 +19,6 @@ export class RestApiService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployees(): Observable<Employees> {
-    return this.http.get<Employees>(this.apiUrl + '/employees');
-  }
-
   getFarms(): Observable<Farms> {
     return this.http.get<Farms>(this.apiUrl + '/farms');
   }
@@ -39,12 +33,6 @@ export class RestApiService {
 
   getEggs(): Observable<Eggs> {
     return this.http.get<Eggs>(this.apiUrl + '/eggs');
-  }
-
-  createEmployee(employee): Observable<Employees> {
-    return this.http.post<Employees>(this.apiUrl + '/employees',
-                                      JSON.stringify(employee),
-                                      this.httpOptions);
   }
 
   createFarm(farm): Observable<Farms> {
@@ -80,6 +68,12 @@ export class RestApiService {
                                 this.httpOptions);
   }
 
+  born(egg): Observable<Eggs> {
+    return this.http.post<Eggs>(this.apiUrl + '/born',
+                                JSON.stringify(egg),
+                                this.httpOptions);
+  }
+
   editChicken(farmId, chickenId, chicken): Observable<Chickens> {
     return this.http.post<Chickens>(this.apiUrl + '/' + farmId + '/edit_chicken/' + chickenId,
                                     JSON.stringify(chicken),
@@ -99,19 +93,6 @@ export class RestApiService {
                                 this.httpOptions);
   }
   */
-
-  getEmployee(id): Observable<Employees> {
-    return this.http.get<Employees>(this.apiUrl + '/employees/' + id);
-  }
-
-  updateEmployee(id, employee): Observable<Employees> {
-    return this.http.put<Employees>(this.apiUrl + '/employees/' + id,
-    JSON.stringify(employee), this.httpOptions);
-  }
-
-  deleteEmployee(id) {
-    return this.http.delete<Employees>(this.apiUrl + '/employees/' + id);
-  }
 
   /*
   deleteChicken(id) {
@@ -135,7 +116,6 @@ export class RestApiService {
     return this.http.post<Eggs>(this.apiUrl + '/del_egg',
                                     JSON.stringify(egg),
                                     this.httpOptions);
-                                    //.pipe(catchError(this.handleError<Eggs>('deleteEgg')));
   }
 
   /*

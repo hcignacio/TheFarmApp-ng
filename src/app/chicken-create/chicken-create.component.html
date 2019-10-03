@@ -7,11 +7,23 @@
         <input type="text" [(ngModel)]="chickenDetails.name" class="form-control" placeholder="Name" required>
       </div>
   
+      <!--
       <div class="form-group">
         <h6>Farm ID</h6>
         <input type="number" [(ngModel)]="chickenDetails.farmId" class="form-control" placeholder="Farm ID" required>
       </div>
-  
+      -->
+      
+      <div class="form-group">
+        <div *ngIf="Farms.length !== 0">
+            <select [(ngModel)]="chickenDetails.farmId" class="form-group form-control ng-untouched ng-pristine ng-valid" placeholder="Farm ID" required>
+              <option *ngFor="let farm of Farms" [value]="farm.id">
+                {{farm.name}}
+              </option>
+            </select>
+        </div>
+      </div>
+
       <div class="form-group">
         <h6>Join Date</h6>
         <input type="date" [(ngModel)]="chickenDetails.joinDate" class="form-control" placeholder="Join Date">
